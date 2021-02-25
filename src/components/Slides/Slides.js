@@ -60,6 +60,7 @@ function Slides() {
     arrows: true,
     autoplay: false,
     defaultIndex: 0,
+    transitionDuration: 300,
     prevArrow: (
       <div style={{ width: '30px', marginRight: '-30px' }}>
         <i className='fas fa-arrow-left'></i>
@@ -111,62 +112,56 @@ function Slides() {
           <div className='slide'>
             <div className='row p-3 m-1'>
               <div className='col'>
-                <h3 className='slide-title'>Welcome to Financial Reporting</h3>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Omnis, explicabo aliquam voluptatibus, reprehenderit saepe
-                  tenetur eaque itaque officia corporis eligendi doloribus vitae
-                  non, ratione commodi delectus deserunt ab provident quidem.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Omnis, explicabo aliquam voluptatibus, reprehenderit saepe
-                  tenetur eaque itaque officia corporis eligendi doloribus vitae
-                  non, ratione commodi delectus deserunt ab provident quidem.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Omnis, explicabo aliquam voluptatibus, reprehenderit saepe
-                  tenetur eaque itaque officia corporis eligendi doloribus vitae
-                  non, ratione commodi delectus deserunt ab provident quidem.
-                </span>
+                <h3 className='slide-title'>
+                  Welcome to GFEBS and External Reporting Systems
+                </h3>
+                <p>
+                  Welcome to GFEBS and External Reporting Systems module. In
+                  this module, we will discuss:
+                </p>
+
+                <ul>
+                  <li>Key Terms</li>
+                  <li>Overview</li>
+                  <li>Standardize Reporting</li>
+                  <li>Department of Defense (DoD) Reporting Standards</li>
+                  <li>Department of the Treasury Reporting Standards</li>
+                  <li>
+                    Summary of External Reporting Data Flows Module Checkpoint
+                  </li>
+                </ul>
               </div>
               <div className='col'>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Omnis, explicabo aliquam voluptatibus, reprehenderit saepe
-                  tenetur eaque itaque officia corporis eligendi doloribus vitae
-                  non, ratione commodi delectus deserunt ab provident quidem.
-                </span>
+                <span>IMAGE</span>
               </div>
             </div>
-          </div>
-          <div className='slide'>
-            <div className='row'>
-              <div className='col-6'>
-                <Quiz
-                  quiz={quiz}
-                  key={key}
-                  continueTillCorrect={true}
-                  showDefaultResult={false}
-                  onComplete={onCompleteAction}
-                  customResultPage={renderCustomResultPage}
-                />
-              </div>
-              <div className='col-6 d-flex p-5 justify-content-center'>
-                <img
-                  style={{ height: '300px' }}
-                  src='https://ssilrc.army.mil/resources/FMS/GFEBS/GFEBSLegacy/L413E/1FinancialReporting/html/images/qanda_-_info.png'
-                  alt=''
-                />
-              </div>
-            </div>
-          </div>
-          <div className='slide'>
-            <TermsComponent />
           </div>
           <div className='slide'>
             <div className='row p-3 m-1'>
               <div className='col'>
                 <div>
-                  <h3 className='slide-title'>title</h3>
-                  <p>text</p>
+                  <h3 className='slide-title'>Lesson Objectives</h3>
+                  <p>After completing this lesson, you will be able to:</p>
+                  <ul>
+                    <li>Define SFIS.</li>
+                    <li>Explain the purpose of SFIS.</li>
+
+                    <li>Describe how GFEBS achieves SFIS compliance.</li>
+                    <li>Define DDRS.</li>
+                    <li>Explain why GFEBS must use DDRS.</li>
+
+                    <li>Define BEIS.</li>
+                    <li>
+                      Explain the relationship between BEIS, DDRS, and GFEBS.
+                    </li>
+                    <li>Define FACTS.</li>
+                    <li>Explain the importance of FACTS I and II to GFEBS.</li>
+                    <li>Define the GFRS.</li>
+                    <li>
+                      Explain the purpose of GFRS and how it is associated with
+                      GFEBS.
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div className='col'>IMAGE</div>
@@ -176,11 +171,10 @@ function Slides() {
             <div className='row p-3 m-1'>
               <div className='col'>
                 <div>
-                  <h3 className='slide-title'>title</h3>
-                  <p>text</p>
+                  <h3 className='slide-title'>Key Terms</h3>
                 </div>
+                <TermsComponent />
               </div>
-              <div className='col'>IMAGE</div>
             </div>
           </div>
           <div className='slide'>

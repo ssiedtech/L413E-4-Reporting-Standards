@@ -9,41 +9,41 @@ class TermsComponent extends React.Component {
 
   onClickButton1 = () => {
     this.setState({
-      term: 'DDRS',
+      term: 'Business Enterprise Information Services (BEIS)',
       definition:
-        "The automated reporting application maintained by BEIS that is used to prepare and review the Army General Fund financial statements and footnotes, and to prepare the Army's external required budgetary reports, including SF133, FACTS I, and FACTS II. ",
+        'An organization in DoD that delivers enterprise business services to enable effective financial management throughout DoD.',
     });
   };
 
   onClickButton2 = () => {
     this.setState({
-      term: 'Financial Statement',
+      term: 'Government-wide Financial Reporting System (GFRS)',
       definition:
-        "A formal record of the Army's financial activities for a period of time. These statements provide an overview of the Army's financial condition.",
+        "A system that captures each agency's closing package information, links the agencies' comparative, audited, consolidated, department-level financial statements to the financial report, and resolves material deficiencies identified by the Government Accountability Office (GAO).",
     });
   };
 
   onClickButton3 = () => {
     this.setState({
-      term: 'Interface',
+      term: "Federal Agencies' Centralized Trial Balance System (FACTS)",
       definition:
-        'The point of interconnection between two data systems. For example, an interface that enables GFEBS to communicate with and transfer data to an outside system, such as Defense Cash Accountability System (DCAS).',
+        'System maintained by Treasury that collects proprietary United States Standard General Ledger (USSGL) account balance information, and uses it to produce the government-wide consolidated financial statement.',
     });
   };
 
   onClickButton4 = () => {
     this.setState({
-      term: 'Interface',
+      term: "Federal Agencies' Centralized Trial Balance Systems (FACTS II)",
       definition:
-        'DDRS: The capability in GFEBS of processing transactions the instant they are entered into the system. For instance, as soon as a financial document is posted, it is visible on the G/L. ',
+        'System maintained by Treasury that collects budget execution data used to produce the government-wide consolidated financial statement.',
     });
   };
 
   onClickButton5 = () => {
     this.setState({
-      term: 'Interface',
+      term: 'Standard Financial Information Structure (SFIS)',
       definition:
-        'A summary statement of all G/L debit and credit account balances in a double entry ledger on a given date.  This preliminary balance is used to point out errors in the Period End closing process. ',
+        "DoD's standard for categorizing financial information to support financial management and reporting functions.",
     });
   };
 
@@ -56,19 +56,19 @@ class TermsComponent extends React.Component {
         </div>
         <div className='terms-container-column'>
           <button className='terms-button' onClick={this.onClickButton1}>
-            DDRS
+            Business Enterprise Information Services (BEIS)
           </button>
           <button className='terms-button' onClick={this.onClickButton2}>
-            Financial Statement
+            Government-wide Financial Reporting System (GFRS)
           </button>
           <button className='terms-button' onClick={this.onClickButton3}>
-            Interface
+            Federal Agencies' Centralized Trial Balance System (FACTS)
           </button>
           <button className='terms-button' onClick={this.onClickButton4}>
-            Real-time
+            Federal Agencies' Centralized Trial Balance Systems (FACTS II)
           </button>
           <button className='terms-button' onClick={this.onClickButton5}>
-            Trial Balance
+            Standard Financial Information Structure (SFIS)
           </button>
         </div>
       </div>
