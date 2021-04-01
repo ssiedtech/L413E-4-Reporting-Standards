@@ -154,7 +154,11 @@ button.close {
 }
 
 .p-1[style] {
-  padding: 0.50rem !important;
+  padding: 0.5rem !important;
+}
+
+#root > div > div.mx-auto.my-auto > div > div > div.react-slideshow-wrapper.slide > div > div.active > div > div > div > div > div > div > h3 > p {
+  font-size: 16px !important;
 }
 
 /*!
