@@ -6,12 +6,14 @@ import { quiz } from '../Quiz/Quiz';
 import TermsComponent from '../TermsComponent/TermsComponent.js';
 import GFEBS from '../../img/GFEBS.png';
 import { Image } from 'react-bootstrap';
-import Standards from '../../img/standards.jpg';
+import Standards from '../../img/standards.svg';
 import ReportingStandards from '../../img/reporting_standards.jpg';
-import GFRS from '../../img/gfrs.jpg';
-import FlowChart from '../../img/flowchart.png';
-import LearningCheckPoint from '../../img/module_checkpoint.png';
+import GFRS from '../../img/gfrs.svg';
+import FlowChart from '../../img/flowchart.svg';
+import LearningCheckPoint from '../../img/module_checkpoint.svg';
 import FMCrest from '../../img/fm_crest.png';
+import objectives from '../../img/objectives.svg';
+import { SRLWrapper } from 'simple-react-lightbox';
 
 function Slides() {
   // State management
@@ -36,7 +38,10 @@ function Slides() {
     }
 
     // Removes next arrow on final slide
-    if (context.currentSlide === context.total) {
+    if (
+      context.currentSlide === context.total ||
+      context.currentSlide === context.total - 1
+    ) {
       document.querySelector(
         '#root > div > div.mx-auto.my-auto > div > div > div.next-arrow.nav'
       ).style.display = 'none';
@@ -60,6 +65,12 @@ function Slides() {
   // Resets Quiz key to random number and rerenders it... there's probably a better way to do this.
   function retakeQuiz() {
     return setKey(Math.random());
+  }
+
+  function continueQuiz() {
+    document.querySelector(
+      '#root > div > div.mx-auto.my-auto > div > div > div.next-arrow.nav'
+    ).style.display = 'block';
   }
 
   // React-Slideshow package settings
@@ -86,6 +97,21 @@ function Slides() {
     onChange: (previous, next) => {
       context.onSlideChange(previous, next);
     },
+  };
+
+  const options = {
+    settings: {},
+    caption: { showCaption: false },
+    buttons: {
+      showAutoplayButton: false,
+      showCloseButton: true,
+      showDownloadButton: false,
+      showFullscreenButton: false,
+      showNextButton: false,
+      showPrevButton: false,
+      showThumbnailsButton: false,
+    },
+    thumbnails: { showThumbnails: false },
   };
 
   // Sets post-quiz state
@@ -176,7 +202,7 @@ function Slides() {
                 </div>
               </div>
               <div className='col'>
-                <Image fluid className='mt-5 py-5' src={GFEBS} alt='' />
+                <Image fluid className='my-auto' src={objectives} alt='' />
               </div>
             </div>
           </div>
@@ -466,14 +492,16 @@ function Slides() {
                   </p>
                 </div>
               </div>
-              <div className=''>
+              <div className='my-auto col'>
                 {' '}
-                <Image
-                  fluid
-                  className='mt-3 my-auto col-7'
-                  src={FlowChart}
-                  alt='Flow Chart'
-                />
+                <SRLWrapper options={options}>
+                  <Image
+                    fluid
+                    className='my-auto col'
+                    src={FlowChart}
+                    alt='Flow Chart'
+                  />
+                </SRLWrapper>
               </div>
             </div>
           </div>
@@ -516,7 +544,9 @@ function Slides() {
               <div className='my-auto col'>
                 {' '}
                 <br />
-                <Image fluid className='' src={FlowChart} alt='Flow Chart' />
+                <SRLWrapper options={options}>
+                  <Image fluid className='' src={FlowChart} alt='Flow Chart' />
+                </SRLWrapper>
               </div>
             </div>
           </div>
@@ -531,9 +561,10 @@ function Slides() {
                   </p>
                 </div>
               </div>
-              <div className='col'>
+              <div className='col py-auto'>
                 <Image
-                  className='m-3'
+                  className='m-5'
+                  style={{ height: '350px' }}
                   fluid
                   src={LearningCheckPoint}
                   alt='Learning Checkpoint'
@@ -549,7 +580,7 @@ function Slides() {
                   key={key}
                   continueTillCorrect={true}
                   showDefaultResult={false}
-                  onComplete={onCompleteAction}
+                  onComplete={continueQuiz}
                   customResultPage={renderCustomResultPage}
                 />
               </div>

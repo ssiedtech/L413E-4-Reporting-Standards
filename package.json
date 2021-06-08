@@ -17,6 +17,7 @@
     "react-quiz-component": "^0.3.8",
     "react-scripts": "4.0.2",
     "react-slideshow-image": "^3.4.3",
+    "simple-react-lightbox": "^3.6.6",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
