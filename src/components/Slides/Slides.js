@@ -7,7 +7,7 @@ import TermsComponent from '../TermsComponent/TermsComponent.js';
 import GFEBS from '../../img/GFEBS.png';
 import { Image } from 'react-bootstrap';
 import Standards from '../../img/standards.svg';
-import ReportingStandards from '../../img/reporting_standards.jpg';
+import ReportingStandards from '../../img/reportingstandards.svg';
 import GFRS from '../../img/gfrs.svg';
 import FlowChart from '../../img/flowchart.svg';
 import LearningCheckPoint from '../../img/module_checkpoint.svg';
@@ -100,7 +100,7 @@ function Slides() {
   };
 
   const options = {
-    settings: {},
+    settings: { overlayColor: '#fff', slideAnimationType: 'fade' },
     caption: { showCaption: false },
     buttons: {
       showAutoplayButton: false,
@@ -132,6 +132,26 @@ function Slides() {
     );
   };
 
+  // Get the modal
+  var modal = document.getElementById('myModal');
+  var modalImg = document.getElementById('img1');
+  // Get the images
+  var images = document.querySelectorAll('.slide-image');
+  // Hide the modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+  //Loop through the images and add listener to each, set src of image to modal src.
+  function enlargeImage() {
+    for (var i = 0; i < images.length; i++) {
+      images[i].addEventListener('click', (e) => {
+        console.log(e.target.src);
+        modal.style.display = 'block';
+        modalImg.src = e.target.src;
+      });
+    }
+  }
+
   return (
     <>
       <div
@@ -143,6 +163,14 @@ function Slides() {
           backgroundColor: '#f4f4f4',
         }}
       >
+        <div id='myModal' className='modalStyle'>
+          <span onClick={closeModal} class='myClose'>
+            &times;
+          </span>
+          <img id='img1' class='myModal-content' />
+          <div id='myCaption'></div>
+        </div>
+
         <Slide ref={slideRef} easing='ease' {...properties}>
           <div className='slide'>
             <div className='row p-3 m-1'>
@@ -494,14 +522,13 @@ function Slides() {
               </div>
               <div className='my-auto col'>
                 {' '}
-                <SRLWrapper options={options}>
-                  <Image
-                    fluid
-                    className='my-auto col'
-                    src={FlowChart}
-                    alt='Flow Chart'
-                  />
-                </SRLWrapper>
+                <Image
+                  fluid
+                  className='my-auto col slide-image'
+                  src={FlowChart}
+                  alt='Flow Chart'
+                  onClick={enlargeImage}
+                />
               </div>
             </div>
           </div>
@@ -544,9 +571,13 @@ function Slides() {
               <div className='my-auto col'>
                 {' '}
                 <br />
-                <SRLWrapper options={options}>
-                  <Image fluid className='' src={FlowChart} alt='Flow Chart' />
-                </SRLWrapper>
+                <Image
+                  fluid
+                  className='slide-image'
+                  src={FlowChart}
+                  alt='Flow Chart'
+                  onClick={enlargeImage}
+                />
               </div>
             </div>
           </div>
