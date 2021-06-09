@@ -13,7 +13,6 @@ import FlowChart from '../../img/flowchart.svg';
 import LearningCheckPoint from '../../img/module_checkpoint.svg';
 import FMCrest from '../../img/fm_crest.png';
 import objectives from '../../img/objectives.svg';
-import { SRLWrapper } from 'simple-react-lightbox';
 
 function Slides() {
   // State management
